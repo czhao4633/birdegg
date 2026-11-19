@@ -1,0 +1,232 @@
+---
+title: "Do bird eggs revert in shape after the loss of flight?"
+subtitle: "A phylogenetic comparative test with two independent egg-shape datasets"
+author: "czhao"
+date: last-modified
+date-format: "D MMMM YYYY"
+abstract: |
+  Stoddard et al. (2017) linked the elongated, asymmetric eggs of many birds to adaptations for flight. If flight maintains these shapes, lineages that lost flight should evolve rounder, more symmetric eggs. I tested this with 946 species (Montgomerie et al. dataset; 5 terrestrial and 2 diving flightless origins) and 1,388 species (Stoddard et al. dataset), using phylogenetic regression, sister-pair contrasts against an age-matched null, multi-rate Brownian motion, and 100 posterior trees. Flight status had no detectable effect on egg shape. The only significant result depended on covariate adjustment and on very few species, and ratites lay *more* elongated eggs than their volant sister group, the tinamous. The only rate difference that survived a simulation null ran against the prediction: polar asymmetry evolved more slowly in flightless lineages. Equivalence tests excluded reversions larger than about 0.75 SD, but not the smaller reversion (0.17–0.38 SD) predicted by the relationship between flight ability and egg shape among volant birds. There is therefore no evidence for reversion on timescales of 2–80 Myr. This is consistent with anatomical and incubation constraints outweighing flight-related selection.
+format:
+  typst:
+    papersize: a4
+    margin:
+      x: 2cm
+      y: 1.6cm
+    fontsize: 10pt
+    section-numbering: "1."
+    fig-format: png
+    bibliographystyle: "chicago-author-date"
+    include-in-header:
+      text: |
+        #set figure(placement: auto)
+        #set bibliography(title: [References])
+        #show bibliography: set text(8pt)
+        #show bibliography: set par(spacing: 0.55em)
+bibliography: references.bib
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+suppressPackageStartupMessages(library(dplyr))
+tab <- function(x) read.csv(here::here("output", "tables", paste0(x, ".csv")))
+proc <- function(x) readRDS(here::here("data", "processed", paste0(x, ".rds")))
+f2 <- function(x) formatC(x, digits = 2, format = "f")
+fp <- function(p) ifelse(p < 0.001, "< 0.001", paste("=", formatC(p, digits = 2, format = "fg")))
+
+mont <- proc("analysis_montgomerie"); stod <- proc("analysis_stoddard")
+nst <- function(d, s) sum(d$flight_status == s)
+pairs <- tab("stage2_sister_pairs")
+n_orig <- function(ds, loc) sum(pairs$dataset == ds & pairs$locomotion == loc)
+
+pg <- tab("pgls_main")
+pgp <- tab("pgls_posterior_summary")
+status_terms <- c("flight_statusterrestrial", "flight_statusdiving")
+m_status <- pg |> filter(dataset == "montgomerie", term %in% status_terms)
+m1_terr <- pg |> filter(dataset == "montgomerie", model == "M1_status",
+                        term == "flight_statusterrestrial") |>
+  mutate(lo = (estimate - 1.96 * se) / trait_sd_volant,
+         hi = (estimate + 1.96 * se) / trait_sd_volant)
+hwi <- pg |> filter(term == "hwi")
+hwi_post <- pgp |> filter(term == "hwi")
+post_m_status <- pgp |> filter(dataset == "montgomerie", model == "M1_status",
+                               term %in% status_terms)
+sd_diag <- tab("stoddard_diagnostics")
+dg <- function(chk, col = "p") sd_diag[[col]][sd_diag$check == chk]
+st_ell <- pg |> filter(dataset == "stoddard", trait == "ellipticity",
+                       model == "M1_status", term == "flight_statusterrestrial")
+
+pd <- tab("paired_differences")
+pdv <- function(o, t) pd$diff_std[pd$origin_id == o & pd$trait == t]
+tests <- tab("paired_tests") |> filter(locomotion == "terrestrial")
+rand  <- tab("paired_phylo_randomisation") |> filter(locomotion == "terrestrial")
+h4 <- tab("h4_divergence_time")
+rt <- tab("rates_posterior_summary")
+
+# Robustness checks (R/12_robustness.R)
+rb <- tab("robustness_covariates")
+rb_mt <- rb |> filter(dataset == "montgomerie", term == "flight_statusterrestrial")
+rb_nr <- rb_mt |> filter(grepl("no_ratites", model))
+rb_cov <- rb_mt |> filter(!grepl("no_ratites", model))
+rb_sd <- rb |> filter(dataset == "stoddard", model == "M6_status_mass",
+                      trait == "ellipticity", term == "flight_statusdiving")
+rbv <- function(ds, tr, m, tm, col) rb[[col]][rb$dataset == ds & rb$trait == tr &
+                                               rb$model == m & rb$term == tm]
+eq <- tab("equivalence_tests")
+eq_m1 <- eq |> filter(model == "M1_status")
+md <- tab("montgomerie_diagnostics")
+mdv <- function(chk) md$value[md$check == chk]
+rng <- function(x) paste0(f2(min(x)), "–", f2(max(x)))
+sens <- tab("sensitivity_pgls") |> filter(term == "flight_statusterrestrial")
+sens_m <- sens |> filter(dataset == "montgomerie", variant != "M1, all species")
+sv <- function(ds, tr, v, col) sens[[col]][sens$dataset == ds & sens$trait == tr & sens$variant == v]
+ou <- tab("ou_models")
+ou_m <- ou |> filter(dataset == "montgomerie")
+rt_pg <- tab("ratite_topology_pgls") |> filter(dataset == "montgomerie", grepl("alternative", tree))
+rt_pairs <- tab("ratite_topology_pairs")
+rt_test <- rt_pairs |> filter(origin == "TEST (terrestrial pairs)")
+rtd <- function(o, tr) rt_pairs$diff_std[rt_pairs$trait == tr & grepl(o, rt_pairs$origin)]
+pw <- tab("power_simulation")
+pct <- function(x) paste0(round(100 * x), "%")
+pw_now <- pw |> filter(n_origins == 5)
+k80 <- function(tr) min(pw$n_origins[pw$trait == tr & pw$power >= 0.8], Inf)
+inv <- tab("origin_inventory")
+k_sure <- sum(inv$locomotion == "terrestrial")
+k_max <- k_sure + sum(!inv$has_egg_data & inv$locomotion == "review")
+rn <- tab("rate_null")
+rnv <- function(ds, tr, g, col) rn[[col]][rn$dataset == ds & rn$trait == tr & rn$generator == g]
+rr <- function(ds, tr, reg, col) rt[[col]][rt$dataset == ds & rt$trait == tr & rt$regimes == reg]
+```
+
+# Introduction
+
+Bird eggs range from nearly spherical to strongly elongated and pointed. Why they vary so much is still debated. In a study of about 1,400 species, Stoddard et al. [-@stoddard2017] found that egg asymmetry and ellipticity increase with the hand-wing index (HWI), a proxy for flight efficiency. They proposed that adaptations for flight, through a streamlined body and a narrow oviduct, favoured elongated, asymmetric eggs. Critics noted that this flight-efficiency effect explained only about 4% of interspecific variation. They argued instead that conditions during incubation, notably the incubation site, explain much more of the variation in egg shape [@birkhead2019]. A study of 955 species then attributed egg elongation mainly to constraints of female anatomy and egg asymmetry mainly to clutch size and incubation site [@montgomerie2021].
+
+Repeated losses of flight offer a natural experiment for separating these explanations. If selection for flight actively maintains elongated, asymmetric eggs, lineages that stopped flying should evolve rounder, more symmetric eggs ("reversion"). If egg shape is mainly constrained by pelvic and oviduct anatomy, or shaped by incubation, flight loss should leave it unchanged. Flight has been lost many times in birds [@sayol2020], and in feathers flight loss is followed by only limited and trait-specific change [@saitta2025]. I tested four hypotheses:
+
+- **H1:** terrestrial flightless lineages lay rounder, more symmetric eggs than their volant relatives.
+- **H2:** diving flightless lineages, whose bodies remain streamlined for swimming, show no such reversion.
+- **H3:** egg shape is more variable, or evolves faster, in flightless lineages.
+- **H4 (exploratory):** reversion increases with time since flight loss.
+
+# Methods
+
+**Data.** Egg shape came from two datasets that I analysed separately (they use different metrics and cannot be pooled without bias; see below).
+
+- The *primary* dataset [@montgomerie2021; @montgomerie2022data] has `r nrow(mont)` species with the metrics of Biggins et al. [-@biggins2018]: elongation (EL), pointedness (PT) and polar asymmetry (PA). These metrics describe pyriform eggs accurately. The dataset also includes egg volume, clutch size and incubation site.
+- The *parallel* dataset is Stoddard et al.'s [-@stoddard2017] species means for `r nrow(stod)` species: ellipticity and asymmetry.
+
+Body mass and HWI came from AVONET [@tobias2022]. Flight status came from Sayol et al. [-@sayol2020]. Flightless species were classified as *diving* or *terrestrial* from the swimming-mode scores of Saitta et al. [-@saitta2025]. Two classifications needed a judgement:
+
+- The kagu (*Rhynochetos jubatus*), listed as a weak flyer, was treated as terrestrial flightless.
+- The Tasmanian nativehen (*Gallinula mortierii*), a surface swimmer, was treated as terrestrial.
+
+On the 491 species shared by both datasets, a linear calibration between their metrics explained only 73–76% of the variance. Its residuals were also biased for flightless species (13 of 16 negative for pointedness), so converting one metric into the other would have biased exactly the contrast of interest. Names were matched to the BirdTree taxonomy (99% exact).
+
+**Phylogeny and origins.** I used 1,000 trees from the BirdTree Hackett Stage 2 posterior [@jetz2012; @hackett2008]. From these I took a maximum clade credibility (MCC) tree [@schliep2011] and a random sample of 100 trees. An independent loss of flight ("origin") was defined as a maximal clade containing only flightless species.
+
+| Dataset | Species | Terrestrial (species / origins) | Diving (species / origins) |
+|---|---|---|---|
+| Montgomerie | `r nrow(mont)` | `r nst(mont, "terrestrial")` / `r n_orig("montgomerie", "terrestrial")` | `r nst(mont, "diving")` / `r n_orig("montgomerie", "diving")` |
+| Stoddard | `r nrow(stod)` | `r nst(stod, "terrestrial")` / `r n_orig("stoddard", "terrestrial")` | `r nst(stod, "diving")` / `r n_orig("stoddard", "diving")` |
+
+The terrestrial origins in the Montgomerie dataset are the ratites, kakapo, kagu, Tasmanian nativehen and Inaccessible Island rail; the diving origins are the penguins and the Galápagos cormorant.
+
+**Phylogenetic regression (H1, H2).** Each shape trait was regressed on flight status (volant, terrestrial, diving), log body mass and log egg length using phylogenetic generalised least squares (PGLS) with Pagel's λ [@pagel1999; @ho2014]. Sensitivity models:
+
+- added log clutch size and incubation site;
+- replaced egg length by egg volume;
+- removed the kiwi, whose eggs are exceptionally large relative to body mass;
+- replaced flight status by HWI, as in Stoddard et al. [-@stoddard2017].
+
+Effects are reported in standard-deviation (SD) units of the trait among volant species. The status and HWI models were refitted on all 100 posterior trees.
+
+**Robustness and equivalence.** Egg size may itself change after flight loss, so adjusting for it could absorb a real effect; I therefore refitted the status model with body mass only and with no covariates, on all trees. To ask how large a reversion the data can rule out, I used a one-sided equivalence test: the smallest reversion Δ for which "effect ≤ −Δ" is rejected at α = 0.05. As a benchmark set by the flight hypothesis itself, I multiplied the HWI slope among volant species by the observed drop in HWI from each terrestrial species' volant sister group (mean `r f2(eq$mean_hwi_drop[1])` units). Further checks on the MCC tree: leaving out each origin in turn; treating the kagu as volant or removing the Tasmanian nativehen; spline terms for mass and egg size; restricting flightless species to the volant mass range; an Ornstein–Uhlenbeck model with separate optima for flightless lineages [@clavel2015]; and an alternative tree in which the ostrich is sister to all other palaeognaths and tinamous sit among the ratites, so that ratites represent three losses of flight [@harshman2008].
+
+**Sister pairs (H1, H2, H4).** Each origin was paired with its closest volant relatives that had egg data (the other descendants of the origin's parent node, averaged if there were several). The divergence time of the pair, the age of that parent node, is an upper bound on the time since flight was lost. The Galápagos cormorant and the Tasmanian nativehen are placed in BirdTree by taxonomy alone (no genetic data), and their sister groups changed across trees. For these two, partners and divergence times came from Saitta et al. [-@saitta2025] (the double-crested cormorant, 2.4 Myr; the black-tailed nativehen, 5.5 Myr). The Inaccessible Island rail had no usable partner and was excluded. This left 6 pairs in the Montgomerie dataset (4 terrestrial, 2 diving); the Stoddard dataset yielded too few valid pairs.
+
+Terrestrial pairs were tested with a one-sample t-test, an exact Wilcoxon test and an exact sign-flip test. With 4 pairs, the smallest attainable one-sided *p* is 1/16 = 0.0625. A sister pair is expected to differ somewhat even without any flight loss, so I also compared each observed difference with the differences between all-volant sister clades of similar age on the MCC tree. "Similar age" meant within a factor of 2 of the pair's age (887 candidate contrasts; 10,000 random draws). For H4, the standardised difference was regressed on divergence time.
+
+**Evolutionary rates (H3).** A model in which flightless lineages have their own Brownian-motion rate (*σ²*) was compared by likelihood-ratio test with a single-rate model [@omeara2006; @revell2012]. It was fitted with one shared rate for all flightless lineages (R2) and with separate rates for terrestrial and diving lineages (R3). Flightless regimes started at the midpoint of each origin's stem branch, because the exact timing of flight loss along that branch is unknown. I summarise rate ratios over the 100 posterior trees, using only fits that converged (92–98 per model). Multi-rate models fitted to few, short regimes can produce extreme ratios by chance, so I also simulated 100 traits per trait under a single rate on the MCC tree (Brownian motion, and Pagel's λ fitted to the observed trait), refitted R2 and R3 to each, and asked how often the null ratio was as extreme as the observed one.
+
+Analyses used R [@rcore2026] with ape [@paradis2019], phylolm, phytools and ggtree [@yu2017]. The full pipeline, including data download, runs with one command; the random seed is fixed at 20261117.
+
+# Results
+
+```{r}
+#| label: fig-space
+#| fig-cap: "Egg-shape space. (a, b) Montgomerie dataset; (c) Stoddard dataset. Flightless species (coloured) lie within the range of volant species (grey). Labels mark the mean position of each flightless origin; numbers in parentheses are species counts."
+knitr::include_graphics(here::here("output", "figures", "fig1_egg_shape_space.png"))
+```
+
+**No reversion in PGLS (H1, H2).** In the Montgomerie dataset, flight status had no detectable effect on any trait (@fig-space; @fig-robust a). The terrestrial effects were small and negative (`r paste(f2(m1_terr$std_estimate), collapse = ", ")` SD for EL, PT and PA). Across all sensitivity models, *p* `r fp(min(m_status$p))` was the smallest value for any flight-status term. No posterior tree gave *p* < 0.05 (`r round(100 * max(post_m_status$prop_p_lt_005))`% of trees). Diving lineages did not differ from volant ones either. H2 is therefore consistent with the data but uninformative, because there is no terrestrial effect to contrast it with.
+
+The only significant flight-status effect was in the Stoddard dataset, for ellipticity in terrestrial lineages (`r f2(st_ell$std_estimate)` SD, *p* `r fp(st_ell$p)`). It depends on covariate adjustment and rests on very few species:
+
+- Without the mass and egg-size covariates, the effect disappears (*p* `r fp(dg("M1 without mass and egg-size covariates"))`), and the raw values point the other way: ratite eggs are *more* elliptical than tinamou eggs (`r f2(dg("Mean ellipticity, ratites", "value"))` vs `r f2(dg("Mean ellipticity, sister group (tinamous)", "value"))`).
+- `r dg("Ratites heavier than heaviest volant species", "value")` of the 7 ratites weigh at least `r round(dg("Lightest ratite, mass (g)", "value") / 1000)` kg, against `r round(dg("Heaviest volant species, mass (g)", "value") / 1000, 1)` kg for the heaviest volant species, so their "expected" shape is extrapolated. Extrapolation is not the whole story, however: the effect persists with spline covariates (*p* `r fp(sv("stoddard", "ellipticity", "spline mass and egg size (3 df)", "p"))`) and when the only terrestrial species are the two inside the volant mass range, the kiwi and the kagu (*p* `r fp(sv("stoddard", "ellipticity", "flightless within volant mass range", "p"))`).
+- It has no counterpart in Montgomerie elongation, a closely related metric (*r* = 0.87 across shared species).
+
+I therefore do not treat it as evidence for reversion.
+
+**How large a reversion can be excluded?** Dropping the covariates revealed no hidden reversion: no terrestrial term reached *p* < 0.05 on any tree (smallest *p* on the MCC tree `r f2(min(rb_cov$p))`), and without covariates the elongation effect became positive (`r sprintf("%+.2f", rbv("montgomerie", "elongation", "M0_status_only", "flight_statusterrestrial", "std_estimate"))` SD). Here, too, `r mdv("Ratites heavier than heaviest volant species")` of `r mdv("Ratites in dataset")` ratites are heavier than any volant species, but removing them left the terrestrial effects near zero (*p* ≥ `r f2(min(rb_nr$p))`). Equivalence tests excluded reversions larger than `r rng(eq_m1$delta_min_sd)` SD (up to `r f2(max(eq$post_delta_min_max))` SD across trees and covariate sets). The HWI benchmark, however, predicts a reversion of only `r rng(eq$benchmark_sd)` SD, and no model excluded it (*p* = `r rng(eq$p_vs_benchmark)`). One further term was significant: in the Stoddard mass-only model, penguin eggs were less elliptical than expected (`r f2(rb_sd$std_estimate)` SD, *p* `r fp(rb_sd$p)`). It vanishes with no covariates or with egg size added (both *p* = `r f2(rbv("stoddard", "ellipticity", "M0_status_only", "flight_statusdiving", "p"))`), so I treat it as model-dependent.
+
+**Further sensitivity checks.** No single origin or judgement call drives the Montgomerie result. Across the leave-one-out, classification and body-mass variants, terrestrial effects ranged from `r sprintf("%+.2f", min(sens_m$std_estimate))` to `r sprintf("%+.2f", max(sens_m$std_estimate))` SD (all *p* ≥ `r f2(min(sens_m$p))`). Treating the ratites as three origins left the PGLS unchanged (*p* ≥ `r f2(min(rt_pg$p))`) and gave 6 terrestrial pairs with sign-flip *p* = `r paste(f2(rt_test$signflip_p_one_sided), collapse = ", ")`. Ostrich eggs are rounder than tinamou eggs (EL `r sprintf("%+.2f", rtd("Struthio", "elongation"))` SD), but Australasian ratite eggs are much more elongated (`r sprintf("%+.2f", rtd("Dromaius", "elongation"))` SD). A separate OU optimum for flightless lineages was not preferred over a single optimum (likelihood-ratio *p* ≥ `r f2(min(ou_m$lrt_p_OUM2_vs_OU1, ou_m$lrt_p_OUM3_vs_OU1))`).
+
+```{r}
+#| label: fig-tree
+#| fig-cap: "MCC tree of the 946 species in the Montgomerie dataset. The heatmap shows elongation (EL), pointedness (PT) and polar asymmetry (PA) in SD from the volant mean. Coloured branches are flightless (vermillion, terrestrial; blue, diving), and white circles mark the stem midpoint of each origin."
+#| out-width: "50%"
+knitr::include_graphics(here::here("output", "figures", "fig2_tree_heatmap.png"))
+```
+
+**Sister pairs contradict reversion (H1).** Of the 4 terrestrial pairs, only the Tasmanian nativehen differed in the predicted direction for all three traits (@fig-pairs). The oldest pair showed the opposite pattern: ratites lay more elongated eggs than tinamous (`r sprintf("%+.2f", pdv("Ratites", "elongation"))` SD), and the kakapo and kagu have more pointed eggs than their sister groups (`r sprintf("%+.2f", pdv("Strigops_habroptila", "pointedness"))` and `r sprintf("%+.2f", pdv("Rhynochetos_jubatus", "pointedness"))` SD). The mean terrestrial difference was positive for EL and PT. Exact sign-flip *p* values were `r paste(f2(tests$signflip_p_one_sided), collapse = ", ")` (EL, PT, PA). Every observed difference lay within, or at the edge of, the range of differences between all-volant sister clades of similar age (@fig-pairs b). The randomisation tests gave *p* = `r paste(f2(rand$p_one_sided_less), collapse = ", ")`.
+
+```{r}
+#| label: fig-pairs
+#| fig-cap: "Sister-pair comparisons in the Montgomerie dataset. (a) Trait values of each volant sister group and its flightless lineage. (b) Flightless minus sister differences. Grey bars show the central 90% of differences between all-volant sister clades of similar age."
+#| out-width: "68%"
+knitr::include_graphics(here::here("output", "figures", "fig3_sister_pairs.png"))
+```
+
+**Rates (H3): one difference survives the null.** Flightless lineages appeared to evolve elongation and pointedness faster (median rate ratio over trees `r f2(rr("montgomerie", "elongation", "R2", "ratio_flightless_median"))` and `r f2(rr("montgomerie", "pointedness", "R2", "ratio_flightless_median"))`) and the asymmetry-type traits more slowly (polar asymmetry `r f2(rr("montgomerie", "polar_asym", "R2", "ratio_flightless_median"))`; Stoddard asymmetry `r f2(rr("stoddard", "asymmetry", "R2", "ratio_flightless_median"))` and ellipticity `r f2(rr("stoddard", "ellipticity", "R2", "ratio_flightless_median"))`; @fig-robust b). Under the λ null, however, the likelihood-ratio test was significant in `r pct(min(rn$null_lrt_false_pos[rn$generator == "lambda"]))`–`r pct(max(rn$null_lrt_false_pos[rn$generator == "lambda"]))` of datasets simulated without any rate difference, so its *p*-values are unreliable here. Only the slowdown in polar asymmetry fell outside both null distributions (no null ratio as low as `r f2(rnv("montgomerie", "polar_asym", "lambda", "obs_flightless"))`). The faster elongation and pointedness were matched or exceeded in `r pct(1 - rnv("montgomerie", "elongation", "lambda", "p_flightless_le_obs"))` and `r pct(1 - rnv("montgomerie", "pointedness", "lambda", "p_flightless_le_obs"))` of λ-null datasets, and the slower Stoddard traits in `r pct(rnv("stoddard", "ellipticity", "lambda", "p_flightless_le_obs"))`–`r pct(rnv("stoddard", "asymmetry", "lambda", "p_flightless_le_obs"))`. H3 is not supported, and the one robust rate difference runs opposite to the prediction.
+
+**H4.** Only 4–6 pairs were available. One of the 9 H4 tests gave *p* < 0.05: terrestrial elongation, *p* = `r formatC(h4$slope_p[h4$trait == "elongation" & h4$subset == "terrestrial"], digits = 3, format = "f")`. It rests on 4 points and is driven by the ratites, so I do not interpret it.
+
+**HWI.** HWI had a positive effect on every trait in both datasets (*p* ≤ `r formatC(max(hwi$p), digits = 2, format = "fg")`; significant on 100% of posterior trees), replicating Stoddard et al. [-@stoddard2017]. The effect was small: `r f2(min(hwi$std_estimate) * 10)`–`r f2(max(hwi$std_estimate) * 10)` SD per 10 HWI units.
+
+```{r}
+#| label: fig-robust
+#| fig-cap: "Robustness across 100 posterior trees. (a) PGLS effects of flight status in SD units. Percentages give the share of trees with *p* < 0.05. The Stoddard terrestrial effects are the covariate-dependent effects described in the text. (b) Ratios of evolutionary rate (flightless or terrestrial or diving, relative to volant). Only converged fits are shown. M, Montgomerie dataset; S, Stoddard dataset."
+#| out-width: "74%"
+knitr::include_graphics(here::here("output", "figures", "fig4_posterior_robustness.png"))
+```
+
+# Discussion
+
+I found no evidence that losing flight made eggs rounder or more symmetric, in either dataset or under any analysis, and large reversions are excluded. The direction of the evidence is also informative: the best-resolved case, the ratites, moved *away* from reversion. A modest reversion of the size implied by the HWI relationship cannot, however, be excluded with 5 terrestrial origins. Any effect of flight-related selection on egg shape is therefore small.
+
+Three non-exclusive explanations fit the data.
+
+1. **Anatomical constraint.** Elongation follows the size of the egg relative to the female's body, pelvis and oviduct [@montgomerie2021; @shatkovska2018]. Flight loss changes none of this directly.
+2. **Incubation-related selection.** Asymmetry tracks clutch size and the incubation site [@birkhead2019; @montgomerie2021]. These do not change systematically with flight loss.
+3. **Stabilising selection and developmental constraint.** Polar asymmetry evolved *more slowly* in flightless lineages, the only rate difference that survived a simulation null. This suggests stabilising selection or developmental constraint rather than relaxation, although it rests on one dataset. A similar pattern appears in feathers: after flight loss, most feather traits change little, and change is limited and trait-specific [@saitta2025].
+
+The HWI association may therefore reflect correlated ecology or body plan rather than selection for flight acting on the egg itself.
+
+# Limitations
+
+- **Few independent origins.** Only 5 terrestrial origins (4 usable as pairs) and 2 diving origins were available, against a planned minimum of 6. Many flightless lineages went extinct [@sayol2020], and the extinct taxa (moa, elephant birds, great auk) were not grafted onto the tree.
+- **Phylogeny.** The main analyses treat the ratites as a single origin, as on the BirdTree backbone, whereas nuclear and ancient DNA imply several convergent losses [@harshman2008; @mitchell2014]. The three-origin alternative did not change the conclusions, but its unresolved node had to be given an arbitrary (bounded) age.
+- **Divergence times.** These are upper bounds on time since flight loss. For three species placed in BirdTree by taxonomy alone, sister groups and ages are uncertain; two of these pairs therefore rely on literature values.
+- **Classification and metrics.** The kagu's flight ability is debatable. The two datasets measure shape differently and overlap in 16 flightless species, so they are not independent replicates.
+- **Statistical power.** With 12 terrestrial species in 5 origins, the PGLS excludes reversions larger than about `r f2(max(eq_m1$delta_min_sd))` SD but not the `r rng(eq$benchmark_sd)` SD predicted by the HWI benchmark. A simulation on the MCC tree put the power of the present design to detect a benchmark-sized reversion at only `r pct(min(pw_now$power))`–`r pct(max(pw_now$power))`. Reaching 80% power would need about `r k80("pointedness")` independent terrestrial origins for pointedness and polar asymmetry, and more than `r max(pw$n_origins)` for elongation. Extant birds offer `r k_sure`–`r k_max` such origins, so new egg data could make asymmetry testable, but elongation would remain out of reach without extinct taxa.
+- **Multiple models.** Flight status was tested in 2 datasets, 5 traits and up to 6 covariate sets without correction for multiple testing; the few significant terms depend on the covariate set or tree.
+
+# Data and code availability {.unnumbered}
+
+All data are public. Most numbers in this report are read directly from the pipeline's output tables.
+

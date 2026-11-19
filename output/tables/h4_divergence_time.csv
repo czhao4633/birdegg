@@ -1,0 +1,7 @@
+trait,subset,n,slope_per_10myr,slope_p,spearman_rho
+elongation,terrestrial,4,0.198,0.0484,1
+elongation,all,6,0.0253,0.866,0.0857
+pointedness,terrestrial,4,0.17,0.334,0.2
+pointedness,all,6,0.113,0.244,0.429
+polar_asym,terrestrial,4,0.122,0.22,0.4
+polar_asym,all,6,0.0996,0.133,0.657

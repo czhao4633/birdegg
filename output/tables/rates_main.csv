@@ -1,0 +1,11 @@
+dataset,trait,regimes,sig2_single,sig2_volant,sig2_flightless,sig2_terrestrial,sig2_diving,logL_single,logL_multi,lrt_p,converged,ratio_flightless,ratio_terrestrial,ratio_diving
+montgomerie,elongation,R2,0.0271,0.02642,0.05222,,,-1077,-1073,0.005895,TRUE,1.977,,
+montgomerie,elongation,R3,0.0271,0.02642,,0.05158,0.05265,-1077,-1073,0.02256,TRUE,,1.953,1.993
+montgomerie,pointedness,R2,0.02685,0.02571,0.06733,,,-1073,-1064,3.439e-5,TRUE,2.619,,
+montgomerie,pointedness,R3,0.02685,0.02572,,0.1183,0.03197,-1073,-1061,1.001e-5,TRUE,,4.599,1.243
+montgomerie,polar_asym,R2,0.06234,0.06344,0.01926,,,-1471,-1465,4.7e-4,TRUE,0.3036,,
+montgomerie,polar_asym,R3,0.06234,0.06342,,0.008208,0.02514,-1471,-1463,5.196e-4,TRUE,,0.1294,0.3964
+stoddard,ellipticity,R2,0.1394,0.1405,0.03701,,,-2427,-2423,0.002444,TRUE,0.2634,,
+stoddard,ellipticity,R3,0.1394,0.1405,,0.03259,0.04058,-2427,-2423,0.009696,TRUE,,0.2319,0.2888
+stoddard,asymmetry,R2,0.09175,0.0925,0.02298,,,-2137,-2132,0.001674,TRUE,0.2485,,
+stoddard,asymmetry,R3,0.09175,0.09247,,0.009851,0.03328,-2137,-2131,0.002119,TRUE,,0.1065,0.3599

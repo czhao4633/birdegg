@@ -1,0 +1,30 @@
+n_species,locomotion,has_egg_data,species
+18,diving,TRUE,"Aptenodytes_forsteri, Aptenodytes_patagonicus, Eudyptes_chrysocome, Eudyptes_chrysolophus, Eudyptes_moseleyi, Eudyptes_pachyrhynchus, Eudyptes_robustus, Eudyptes_schlegeli, Eudyptes_sclateri, Eudyptula_minor, Megadyptes_antipodes, Pygoscelis_adeliae, Pygoscelis_antarcticus, Pygoscelis_papua, Spheniscus_demersus, Spheniscus_humboldti, Spheniscus_magellanicus, Spheniscus_mendiculus"
+1,diving,TRUE,Phalacrocorax_harrisi
+11,terrestrial,TRUE,"Apteryx_australis, Apteryx_haastii, Apteryx_mantelli, Apteryx_owenii, Casuarius_bennetti, Casuarius_casuarius, Casuarius_unappendiculatus, Dromaius_novaehollandiae, Rhea_americana, Rhea_pennata, Struthio_camelus"
+1,terrestrial,TRUE,Atlantisia_rogersi
+1,terrestrial,TRUE,Gallinula_mortierii
+1,terrestrial,TRUE,Rhynochetos_jubatus
+1,terrestrial,TRUE,Strigops_habroptila
+1,diving,FALSE,Podiceps_taczanowskii
+1,diving,FALSE,Rollandia_microptera
+1,review,FALSE,Anas_aucklandica
+1,review,FALSE,Anas_nesiotis
+1,review,FALSE,Fulica_gigantea
+1,review,FALSE,Gallinula_nesiotis
+1,review,FALSE,Gallinula_silvestris
+1,review,FALSE,Gallirallus_calayanensis
+1,review,FALSE,Gallirallus_insignis
+1,review,FALSE,Gallirallus_rovianae
+1,review,FALSE,Mesitornis_unicolor
+1,review,FALSE,Porphyrio_hochstetteri
+1,review,FALSE,Porzana_atra
+2,review,FALSE,"Tachyeres_brachypterus, Tachyeres_pteneres"
+1,review,FALSE,Tachyeres_leucocephalus
+1,terrestrial,FALSE,Aramidopsis_plateni
+1,terrestrial,FALSE,Dryolimnas_cuvieri
+1,terrestrial,FALSE,Gallirallus_australis
+1,terrestrial,FALSE,Gallirallus_sylvestris
+1,terrestrial,FALSE,Habroptila_wallacii
+1,terrestrial,FALSE,Megacrex_inepta
+1,terrestrial,FALSE,Nesoclopeus_woodfordi

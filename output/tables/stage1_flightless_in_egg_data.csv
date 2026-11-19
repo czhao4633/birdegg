@@ -1,0 +1,10 @@
+dataset,n_egg_species,locomotion,n_species,origins_birdtree,species
+Stoddard,1388,terrestrial,8,2,"Apteryx_australis, Casuarius_bennetti, Casuarius_casuarius, Dromaius_novaehollandiae, Rhea_americana, Rhea_pennata, Rhynochetos_jubatus, Struthio_camelus"
+Stoddard,1388,diving,9,1,"Aptenodytes_patagonicus, Eudyptes_chrysocome, Eudyptes_chrysolophus, Eudyptes_pachyrhynchus, Eudyptula_minor, Pygoscelis_adeliae, Pygoscelis_antarcticus, Pygoscelis_papua, Spheniscus_magellanicus"
+Stoddard,1388,review,0,0,
+Montgomerie,946,terrestrial,12,5,"Apteryx_australis, Apteryx_mantelli, Atlantisia_rogersi, Casuarius_bennetti, Casuarius_casuarius, Dromaius_novaehollandiae, Gallinula_mortierii, Rhea_americana, Rhea_pennata, Rhynochetos_jubatus, Strigops_habroptila, Struthio_camelus"
+Montgomerie,946,diving,17,2,"Aptenodytes_forsteri, Aptenodytes_patagonicus, Eudyptes_chrysocome, Eudyptes_moseleyi, Eudyptes_pachyrhynchus, Eudyptes_schlegeli, Eudyptes_sclateri, Eudyptula_minor, Megadyptes_antipodes, Phalacrocorax_harrisi, Pygoscelis_adeliae, Pygoscelis_antarcticus, Pygoscelis_papua, Spheniscus_demersus, Spheniscus_humboldti, Spheniscus_magellanicus, Spheniscus_mendiculus"
+Montgomerie,946,review,0,0,
+Union,1843,terrestrial,12,5,"Apteryx_australis, Apteryx_mantelli, Atlantisia_rogersi, Casuarius_bennetti, Casuarius_casuarius, Dromaius_novaehollandiae, Gallinula_mortierii, Rhea_americana, Rhea_pennata, Rhynochetos_jubatus, Strigops_habroptila, Struthio_camelus"
+Union,1843,diving,18,2,"Aptenodytes_forsteri, Aptenodytes_patagonicus, Eudyptes_chrysocome, Eudyptes_chrysolophus, Eudyptes_moseleyi, Eudyptes_pachyrhynchus, Eudyptes_schlegeli, Eudyptes_sclateri, Eudyptula_minor, Megadyptes_antipodes, Phalacrocorax_harrisi, Pygoscelis_adeliae, Pygoscelis_antarcticus, Pygoscelis_papua, Spheniscus_demersus, Spheniscus_humboldti, Spheniscus_magellanicus, Spheniscus_mendiculus"
+Union,1843,review,0,0,

@@ -1,0 +1,13 @@
+dataset,match_method,n,pct
+Montgomerie egg shape,BirdLife crosswalk,2,0.2
+Montgomerie egg shape,eBird crosswalk,1,0.1
+Montgomerie egg shape,exact,946,99.1
+Montgomerie egg shape,unmatched,6,0.6
+Sayol 2020 flight ability,BirdLife crosswalk,2783,25.4
+Sayol 2020 flight ability,eBird crosswalk,4,0
+Sayol 2020 flight ability,exact,8113,74
+Sayol 2020 flight ability,unmatched,64,0.6
+Stoddard 2017 egg shape,BirdLife crosswalk,2,0.1
+Stoddard 2017 egg shape,exact,1384,98.9
+Stoddard 2017 egg shape,manual fix,10,0.7
+Stoddard 2017 egg shape,unmatched,4,0.3

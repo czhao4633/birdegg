@@ -1,0 +1,58 @@
+birdtree_name,order,family,sayol_names,sayol_volancy,locomotion,locomotion_basis,review_reason,in_stoddard,in_montgomerie,saitta_source
+Anas_aucklandica,Anseriformes,Anatidae,Anas aucklandica,Flightless,review,Saitta et al. 2025 swim modes (Anas aucklandica),Surface swimmer only (no underwater mode),FALSE,FALSE,Fish (2016)
+Anas_nesiotis,Anseriformes,Anatidae,Anas nesiotis,Flightless,review,Inherited: all Saitta-scored flightless members of family agree,No locomotion data,FALSE,FALSE,
+Aptenodytes_forsteri,Sphenisciformes,Spheniscidae,Aptenodytes forsteri,Flightless,diving,Saitta et al. 2025 swim modes (Aptenodytes forsteri),,FALSE,TRUE,Fish (2016)
+Aptenodytes_patagonicus,Sphenisciformes,Spheniscidae,Aptenodytes patagonicus,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Apteryx_australis,Struthioniformes,Apterygidae,Apteryx australis; Apteryx rowi,Flightless,terrestrial,Saitta et al. 2025 swim modes (Apteryx australis),,TRUE,TRUE,
+Apteryx_haastii,Struthioniformes,Apterygidae,Apteryx haastii,Flightless,terrestrial,Inherited: all Saitta-scored flightless members of family agree,,FALSE,FALSE,
+Apteryx_mantelli,Struthioniformes,Apterygidae,Apteryx mantelli,Flightless,terrestrial,Inherited: all Saitta-scored flightless members of family agree,,FALSE,TRUE,
+Apteryx_owenii,Struthioniformes,Apterygidae,Apteryx owenii,Flightless,terrestrial,Inherited: all Saitta-scored flightless members of family agree,,FALSE,FALSE,
+Aramidopsis_plateni,Gruiformes,Rallidae,Aramidopsis plateni,Flightless,terrestrial,Saitta et al. 2025 swim modes (Aramidopsis plateni),,FALSE,FALSE,
+Atlantisia_rogersi,Gruiformes,Rallidae,Atlantisia rogersi,Flightless,terrestrial,Saitta et al. 2025 swim modes (Atlantisia rogersi),,FALSE,TRUE,
+Casuarius_bennetti,Struthioniformes,Casuariidae,Casuarius bennetti,Flightless,terrestrial,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Casuarius_casuarius,Struthioniformes,Casuariidae,Casuarius casuarius,Flightless,terrestrial,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Casuarius_unappendiculatus,Struthioniformes,Casuariidae,Casuarius unappendiculatus,Flightless,terrestrial,Saitta et al. 2025 swim modes (Casuarius unappendiculatus),,FALSE,FALSE,
+Dromaius_novaehollandiae,Struthioniformes,Casuariidae,Dromaius novaehollandiae,Flightless,terrestrial,Saitta et al. 2025 swim modes (Dromaius novaehollandiae),,TRUE,TRUE,
+Dryolimnas_cuvieri,Gruiformes,Rallidae,Dryolimnas cuvieri,Flightless,terrestrial,Saitta et al. 2025 swim modes (Dryolimnas cuvieri cuvieri),,FALSE,FALSE,
+Eudyptes_chrysocome,Sphenisciformes,Spheniscidae,Eudyptes chrysocome,Flightless,diving,Saitta et al. 2025 swim modes (Eudyptes chrysocome crestatus),,TRUE,TRUE,Fish (2016)
+Eudyptes_chrysolophus,Sphenisciformes,Spheniscidae,Eudyptes chrysolophus,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,TRUE,FALSE,
+Eudyptes_moseleyi,Sphenisciformes,Spheniscidae,Eudyptes moseleyi,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,FALSE,TRUE,
+Eudyptes_pachyrhynchus,Sphenisciformes,Spheniscidae,Eudyptes pachyrhynchus,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Eudyptes_robustus,Sphenisciformes,Spheniscidae,Eudyptes robustus,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,FALSE,FALSE,
+Eudyptes_schlegeli,Sphenisciformes,Spheniscidae,Eudyptes schlegeli,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,FALSE,TRUE,
+Eudyptes_sclateri,Sphenisciformes,Spheniscidae,Eudyptes sclateri,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,FALSE,TRUE,
+Eudyptula_minor,Sphenisciformes,Spheniscidae,Eudyptula minor,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Fulica_gigantea,Gruiformes,Rallidae,Fulica gigantea,Flightless,review,Saitta et al. 2025 swim modes (Fulica gigantea),Surface swimmer only (no underwater mode),FALSE,FALSE,Garcia-R et al (2014)
+Gallinula_mortierii,Gruiformes,Rallidae,Tribonyx mortierii,Flightless,terrestrial,"Project-lead decision: Sayol 'Flightless'; surface swimmer only per Saitta, does not dive, so no streamlining demand; grouped with terrestrial (decision 2026-11-17)",,FALSE,TRUE,Ripley et al (1977)
+Gallinula_nesiotis,Gruiformes,Rallidae,Gallinula comeri,Flightless,review,Saitta et al. 2025 swim modes (Gallinula nesiotis),Surface swimmer only (no underwater mode),FALSE,FALSE,Ripley et al (1977)
+Gallinula_silvestris,Gruiformes,Rallidae,Pareudiastes silvestris,Flightless,review,Not scored by Saitta; family not unanimous,No locomotion data,FALSE,FALSE,
+Gallirallus_australis,Gruiformes,Rallidae,Gallirallus australis,Flightless,terrestrial,Saitta et al. 2025 swim modes (Gallirallus australis),,FALSE,FALSE,
+Gallirallus_calayanensis,Gruiformes,Rallidae,Gallirallus calayanensis,Flightless,review,Not scored by Saitta; family not unanimous,No locomotion data,FALSE,FALSE,
+Gallirallus_insignis,Gruiformes,Rallidae,Hypotaenidia insignis,Flightless,review,Not scored by Saitta; family not unanimous,No locomotion data,FALSE,FALSE,
+Gallirallus_rovianae,Gruiformes,Rallidae,Hypotaenidia rovianae,Flightless,review,Not scored by Saitta; family not unanimous,No locomotion data,FALSE,FALSE,
+Gallirallus_sylvestris,Gruiformes,Rallidae,Hypotaenidia sylvestris,Flightless,terrestrial,Saitta et al. 2025 swim modes (Gallirallus (=Tricholimnas) sylvestris),,FALSE,FALSE,
+Habroptila_wallacii,Gruiformes,Rallidae,Habroptila wallacii,Flightless,terrestrial,Saitta et al. 2025 swim modes (Habroptila wallacii),,FALSE,FALSE,
+Megacrex_inepta,Gruiformes,Rallidae,Megacrex inepta,Flightless,terrestrial,Saitta et al. 2025 swim modes (Megacrex inepta),,FALSE,FALSE,
+Megadyptes_antipodes,Sphenisciformes,Spheniscidae,Megadyptes antipodes,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,FALSE,TRUE,
+Mesitornis_unicolor,Mesitornithiformes,Mesitornithidae,Mesitornis unicolor,Flightless,review,Saitta et al. 2025 swim modes (Mesitornis unicolor),Sayol = Flightless but Saitta volant = '?',FALSE,FALSE,
+Nesoclopeus_woodfordi,Gruiformes,Rallidae,Hypotaenidia woodfordi,Flightless,terrestrial,Saitta et al. 2025 swim modes (Nesoclopeus woodfordi),,FALSE,FALSE,
+Phalacrocorax_harrisi,Suliformes,Phalacrocoracidae,Nannopterum harrisi,Flightless,diving,Saitta et al. 2025 swim modes (Phalacrocorax harrisi),,FALSE,TRUE,Fish (2016)
+Podiceps_taczanowskii,Podicipediformes,Podicipedidae,Podiceps taczanowskii,Flightless,diving,Saitta et al. 2025 swim modes (Podiceps taczanowskii),,FALSE,FALSE,Fish (2016)
+Porphyrio_hochstetteri,Gruiformes,Rallidae,Porphyrio hochstetteri,Flightless,review,Not scored by Saitta; family not unanimous,No locomotion data,FALSE,FALSE,
+Porzana_atra,Gruiformes,Rallidae,Zapornia atra,Flightless,review,Not scored by Saitta; family not unanimous,No locomotion data,FALSE,FALSE,
+Pygoscelis_adeliae,Sphenisciformes,Spheniscidae,Pygoscelis adeliae,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Pygoscelis_antarcticus,Sphenisciformes,Spheniscidae,Pygoscelis antarcticus,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Pygoscelis_papua,Sphenisciformes,Spheniscidae,Pygoscelis papua,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Rhea_americana,Struthioniformes,Rheidae,Rhea americana,Flightless,terrestrial,Saitta et al. 2025 swim modes (Rhea americana intermedia),,TRUE,TRUE,
+Rhea_pennata,Struthioniformes,Rheidae,Rhea pennata; Rhea tarapacensis,Flightless,terrestrial,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Rhynochetos_jubatus,Eurypygiformes,Rhynochetidae,Rhynochetos jubatus,Weak flyer,terrestrial,Project-lead decision: Sayol 'Weak flyer'; treated as functionally flightless and terrestrial (decision 2026-11-17); flight ability noted as debatable in Limitations,,TRUE,TRUE,
+Rollandia_microptera,Podicipediformes,Podicipedidae,Rollandia microptera,Flightless,diving,Saitta et al. 2025 swim modes (Rollandia microptera),,FALSE,FALSE,Fish (2016)
+Spheniscus_demersus,Sphenisciformes,Spheniscidae,Spheniscus demersus,Flightless,diving,Saitta et al. 2025 swim modes (Spheniscus demersus),,FALSE,TRUE,Fish (2016)
+Spheniscus_humboldti,Sphenisciformes,Spheniscidae,Spheniscus humboldti,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,FALSE,TRUE,
+Spheniscus_magellanicus,Sphenisciformes,Spheniscidae,Spheniscus magellanicus,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,TRUE,TRUE,
+Spheniscus_mendiculus,Sphenisciformes,Spheniscidae,Spheniscus mendiculus,Flightless,diving,Inherited: all Saitta-scored flightless members of family agree,,FALSE,TRUE,
+Strigops_habroptila,Psittaciformes,Strigopidae,Strigops habroptila,Flightless,terrestrial,Saitta et al. 2025 swim modes (Strigops habroptilus),,FALSE,TRUE,
+Struthio_camelus,Struthioniformes,Struthionidae,Struthio camelus; Struthio molybdophanes,Flightless,terrestrial,Saitta et al. 2025 swim modes (Struthio camelus),,TRUE,TRUE,
+Tachyeres_brachypterus,Anseriformes,Anatidae,Tachyeres brachypterus,Flightless,review,Inherited: all Saitta-scored flightless members of family agree,No locomotion data,FALSE,FALSE,
+Tachyeres_leucocephalus,Anseriformes,Anatidae,Tachyeres leucocephalus,Flightless,review,Inherited: all Saitta-scored flightless members of family agree,No locomotion data,FALSE,FALSE,
+Tachyeres_pteneres,Anseriformes,Anatidae,Tachyeres pteneres,Flightless,review,Saitta et al. 2025 swim modes (Tachyeres pteneres),Surface swimmer only (no underwater mode),FALSE,FALSE,Fish (2016)

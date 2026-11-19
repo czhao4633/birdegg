@@ -1,0 +1,11 @@
+dataset,trait,generator,n_rep,obs_flightless,null_flightless_median,null_flightless_lo95,p_flightless_le_obs,null_lrt_false_pos,obs_terrestrial,null_terrestrial_median,p_terrestrial_le_obs,n_converged_R2,n_converged_R3
+montgomerie,elongation,BM,100,1.98,0.941,0.472,0.979,0.0928,1.95,0.924,0.978,97,92
+montgomerie,elongation,lambda,100,1.98,1.28,0.561,0.862,0.277,1.95,1.09,0.851,94,87
+montgomerie,pointedness,BM,100,2.62,0.999,0.573,1,0.044,4.6,0.853,1,91,92
+montgomerie,pointedness,lambda,100,2.62,1.35,0.563,0.894,0.306,4.6,1.04,1,85,86
+montgomerie,polar_asym,BM,100,0.304,0.945,0.487,0,0.0505,0.129,1.04,0,99,96
+montgomerie,polar_asym,lambda,100,0.304,1.55,0.738,0,0.435,0.129,1.05,0,92,86
+stoddard,asymmetry,BM,100,0.248,0.921,0.414,0,0.03,0.106,0.859,0,100,99
+stoddard,asymmetry,lambda,100,0.248,0.373,0.141,0.2,0.632,0.106,0.276,0.0674,95,89
+stoddard,ellipticity,BM,100,0.263,0.967,0.474,0,0.0606,0.232,0.932,0.0309,99,97
+stoddard,ellipticity,lambda,100,0.263,0.45,0.145,0.158,0.484,0.232,0.369,0.237,95,93

@@ -1,0 +1,11 @@
+dataset,trait,std_estimate,p,delta_min_sd,tree
+montgomerie,elongation,-0.1073,0.7242,0.6078,MCC (ratites one origin)
+montgomerie,elongation,-0.1337,0.6389,0.6027,alternative (ratites three origins)
+montgomerie,pointedness,-0.1763,0.5956,0.7233,MCC (ratites one origin)
+montgomerie,pointedness,-0.2229,0.4749,0.7363,alternative (ratites three origins)
+montgomerie,polar_asym,-0.21560000000000001,0.5089,0.753,MCC (ratites one origin)
+montgomerie,polar_asym,-0.2253,0.4617,0.729,alternative (ratites three origins)
+stoddard,ellipticity,-1.721,0.002988,2.673,MCC (ratites one origin)
+stoddard,ellipticity,-1.566,0.001712,2.386,alternative (ratites three origins)
+stoddard,asymmetry,-0.9831,0.08479,1.921,MCC (ratites one origin)
+stoddard,asymmetry,-0.9982,0.04263,1.808,alternative (ratites three origins)

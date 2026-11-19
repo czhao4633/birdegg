@@ -1,0 +1,99 @@
+dataset,trait,analysis,variant,term,std_estimate,p,delta_min_sd,n,n_terrestrial,n_diving
+montgomerie,elongation,baseline,"M1, all species",flight_statusterrestrial,-0.1073,0.7242,0.6078,946,12,17
+montgomerie,elongation,baseline,"M1, all species",flight_statusdiving,-0.05374,0.8882,0.683,946,12,17
+montgomerie,elongation,leave_one_origin_out,without Penguins,flight_statusterrestrial,-0.1082,0.7223,0.609,930,12,1
+montgomerie,elongation,leave_one_origin_out,without Penguins,flight_statusdiving,0.421,0.3825,0.3724,930,12,1
+montgomerie,elongation,leave_one_origin_out,without Ratites,flight_statusterrestrial,0.01194,0.9723,0.5533,938,4,17
+montgomerie,elongation,leave_one_origin_out,without Ratites,flight_statusdiving,-0.07211,0.85,0.6998,938,4,17
+montgomerie,elongation,leave_one_origin_out,without Atlantisia_rogersi,flight_statusterrestrial,-0.2829,0.4116,0.8501,945,11,17
+montgomerie,elongation,leave_one_origin_out,without Atlantisia_rogersi,flight_statusdiving,-0.06057,0.8741,0.6899,945,11,17
+montgomerie,elongation,leave_one_origin_out,without Gallinula_mortierii,flight_statusterrestrial,-0.1375,0.6929,0.7107,945,11,17
+montgomerie,elongation,leave_one_origin_out,without Gallinula_mortierii,flight_statusdiving,-0.05341,0.889,0.683,945,11,17
+montgomerie,elongation,leave_one_origin_out,without Phalacrocorax_harrisi,flight_statusterrestrial,-0.1113,0.7137,0.6107,945,12,16
+montgomerie,elongation,leave_one_origin_out,without Phalacrocorax_harrisi,flight_statusdiving,-0.8342,0.1766,1.85,945,12,16
+montgomerie,elongation,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusterrestrial,0.03446,0.916,0.5033,945,11,17
+montgomerie,elongation,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusdiving,-0.05421,0.8872,0.6832,945,11,17
+montgomerie,elongation,leave_one_origin_out,without Strigops_habroptila,flight_statusterrestrial,-0.171,0.604,0.7136,945,11,17
+montgomerie,elongation,leave_one_origin_out,without Strigops_habroptila,flight_statusdiving,-0.05232,0.8912,0.682,945,11,17
+montgomerie,elongation,classification,kagu as volant,flight_statusterrestrial,0.03843,0.9064,0.4998,946,11,17
+montgomerie,elongation,classification,kagu as volant,flight_statusdiving,-0.0519,0.8921,0.6814,946,11,17
+montgomerie,elongation,classification,without Tasmanian nativehen,flight_statusterrestrial,-0.1375,0.6929,0.7107,945,11,17
+montgomerie,elongation,classification,without Tasmanian nativehen,flight_statusdiving,-0.05341,0.889,0.683,945,11,17
+montgomerie,elongation,body_mass,spline mass and egg size (3 df),flight_statusterrestrial,-0.2557,0.3969,0.7523,946,12,17
+montgomerie,elongation,body_mass,spline mass and egg size (3 df),flight_statusdiving,-0.08711,0.8171,0.7072,946,12,17
+montgomerie,elongation,body_mass,flightless within volant mass range,flight_statusterrestrial,0.06116,0.8465,0.4591,938,6,15
+montgomerie,elongation,body_mass,flightless within volant mass range,flight_statusdiving,-0.08576,0.8228,0.7161,938,6,15
+montgomerie,pointedness,baseline,"M1, all species",flight_statusterrestrial,-0.1763,0.5956,0.7233,946,12,17
+montgomerie,pointedness,baseline,"M1, all species",flight_statusdiving,0.04959,0.9057,0.6398,946,12,17
+montgomerie,pointedness,leave_one_origin_out,without Penguins,flight_statusterrestrial,-0.1674,0.6122,0.7111,930,12,1
+montgomerie,pointedness,leave_one_origin_out,without Penguins,flight_statusdiving,-0.1834,0.7309,1.061,930,12,1
+montgomerie,pointedness,leave_one_origin_out,without Ratites,flight_statusterrestrial,-0.02906,0.9387,0.6514,938,4,17
+montgomerie,pointedness,leave_one_origin_out,without Ratites,flight_statusdiving,0.02759,0.9476,0.6632,938,4,17
+montgomerie,pointedness,leave_one_origin_out,without Atlantisia_rogersi,flight_statusterrestrial,-0.1725,0.6469,0.7924,945,11,17
+montgomerie,pointedness,leave_one_origin_out,without Atlantisia_rogersi,flight_statusdiving,0.0495,0.906,0.6404,945,11,17
+montgomerie,pointedness,leave_one_origin_out,without Gallinula_mortierii,flight_statusterrestrial,-0.1474,0.6982,0.7733,945,11,17
+montgomerie,pointedness,leave_one_origin_out,without Gallinula_mortierii,flight_statusdiving,0.04911,0.9067,0.6407,945,11,17
+montgomerie,pointedness,leave_one_origin_out,without Phalacrocorax_harrisi,flight_statusterrestrial,-0.1743,0.5999,0.7212,945,12,16
+montgomerie,pointedness,leave_one_origin_out,without Phalacrocorax_harrisi,flight_statusdiving,0.4279,0.525,0.6801,945,12,16
+montgomerie,pointedness,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusterrestrial,-0.2044,0.5677,0.7931,945,11,17
+montgomerie,pointedness,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusdiving,0.04904,0.9069,0.6409,945,11,17
+montgomerie,pointedness,leave_one_origin_out,without Strigops_habroptila,flight_statusterrestrial,-0.3167,0.379,0.9092,945,11,17
+montgomerie,pointedness,leave_one_origin_out,without Strigops_habroptila,flight_statusdiving,0.05231,0.9006,0.637,945,11,17
+montgomerie,pointedness,classification,kagu as volant,flight_statusterrestrial,-0.2044,0.5675,0.7928,946,11,17
+montgomerie,pointedness,classification,kagu as volant,flight_statusdiving,0.04956,0.9058,0.6401,946,11,17
+montgomerie,pointedness,classification,without Tasmanian nativehen,flight_statusterrestrial,-0.1474,0.6982,0.7733,945,11,17
+montgomerie,pointedness,classification,without Tasmanian nativehen,flight_statusdiving,0.04911,0.9067,0.6407,945,11,17
+montgomerie,pointedness,body_mass,spline mass and egg size (3 df),flight_statusterrestrial,-0.2017,0.5487,0.7553,946,12,17
+montgomerie,pointedness,body_mass,spline mass and egg size (3 df),flight_statusdiving,0.06179,0.883,0.6291,946,12,17
+montgomerie,pointedness,body_mass,flightless within volant mass range,flight_statusterrestrial,-0.007091,0.9837,0.5772,938,6,15
+montgomerie,pointedness,body_mass,flightless within volant mass range,flight_statusdiving,-0.06707,0.8733,0.7593,938,6,15
+montgomerie,polar_asym,baseline,"M1, all species",flight_statusterrestrial,-0.21560000000000001,0.5089,0.753,946,12,17
+montgomerie,polar_asym,baseline,"M1, all species",flight_statusdiving,0.1968,0.6387,0.4931,946,12,17
+montgomerie,polar_asym,leave_one_origin_out,without Penguins,flight_statusterrestrial,-0.2042,0.5291,0.738,930,12,1
+montgomerie,polar_asym,leave_one_origin_out,without Penguins,flight_statusdiving,-0.2027,0.7168,1.123,930,12,1
+montgomerie,polar_asym,leave_one_origin_out,without Ratites,flight_statusterrestrial,-0.1764,0.6392,0.7958,938,4,17
+montgomerie,polar_asym,leave_one_origin_out,without Ratites,flight_statusdiving,0.1857,0.6592,0.5072,938,4,17
+montgomerie,polar_asym,leave_one_origin_out,without Atlantisia_rogersi,flight_statusterrestrial,-0.338,0.3589,0.9442,945,11,17
+montgomerie,polar_asym,leave_one_origin_out,without Atlantisia_rogersi,flight_statusdiving,0.1907,0.6493,0.4995,945,11,17
+montgomerie,polar_asym,leave_one_origin_out,without Gallinula_mortierii,flight_statusterrestrial,-0.1351,0.7152,0.7443,945,11,17
+montgomerie,polar_asym,leave_one_origin_out,without Gallinula_mortierii,flight_statusdiving,0.1956,0.6409,0.4946,945,11,17
+montgomerie,polar_asym,leave_one_origin_out,without Phalacrocorax_harrisi,flight_statusterrestrial,-0.2125,0.5149,0.7496,945,12,16
+montgomerie,polar_asym,leave_one_origin_out,without Phalacrocorax_harrisi,flight_statusdiving,0.7138,0.2571,0.3227,945,12,16
+montgomerie,polar_asym,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusterrestrial,-0.1906,0.588,0.7695,945,11,17
+montgomerie,polar_asym,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusdiving,0.1962,0.6399,0.4942,945,11,17
+montgomerie,polar_asym,leave_one_origin_out,without Strigops_habroptila,flight_statusterrestrial,-0.2399,0.4986,0.8234,945,11,17
+montgomerie,polar_asym,leave_one_origin_out,without Strigops_habroptila,flight_statusdiving,0.1966,0.6392,0.49370000000000003,945,11,17
+montgomerie,polar_asym,classification,kagu as volant,flight_statusterrestrial,-0.189,0.5909,0.7677,946,11,17
+montgomerie,polar_asym,classification,kagu as volant,flight_statusdiving,0.1974,0.6378,0.4927,946,11,17
+montgomerie,polar_asym,classification,without Tasmanian nativehen,flight_statusterrestrial,-0.1351,0.7152,0.7443,945,11,17
+montgomerie,polar_asym,classification,without Tasmanian nativehen,flight_statusdiving,0.1956,0.6409,0.4946,945,11,17
+montgomerie,polar_asym,body_mass,spline mass and egg size (3 df),flight_statusterrestrial,-0.2339,0.4814,0.7808,946,12,17
+montgomerie,polar_asym,body_mass,spline mass and egg size (3 df),flight_statusdiving,0.1872,0.6572,0.5072,946,12,17
+montgomerie,polar_asym,body_mass,flightless within volant mass range,flight_statusterrestrial,-0.1225,0.7203,0.6854,938,6,15
+montgomerie,polar_asym,body_mass,flightless within volant mass range,flight_statusdiving,0.05073,0.9041,0.642,938,6,15
+stoddard,ellipticity,baseline,"M1, all species",flight_statusterrestrial,-1.721,0.002988,2.673,1388,8,9
+stoddard,ellipticity,baseline,"M1, all species",flight_statusdiving,-0.7649,0.2696,1.905,1388,8,9
+stoddard,ellipticity,leave_one_origin_out,without Penguins,flight_statusterrestrial,-1.728,0.00296,2.684,1379,8,0
+stoddard,ellipticity,leave_one_origin_out,without Ratites,flight_statusterrestrial,-2.305,0.01479,3.86,1381,1,9
+stoddard,ellipticity,leave_one_origin_out,without Ratites,flight_statusdiving,-0.7749,0.2612,1.91,1381,1,9
+stoddard,ellipticity,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusterrestrial,-1.387,0.05375,2.57,1387,7,9
+stoddard,ellipticity,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusdiving,-0.7624,0.2712,1.902,1387,7,9
+stoddard,ellipticity,classification,kagu as volant,flight_statusterrestrial,-1.353,0.06112,2.542,1388,7,9
+stoddard,ellipticity,classification,kagu as volant,flight_statusdiving,-0.753,0.2796,1.899,1388,7,9
+stoddard,ellipticity,body_mass,spline mass and egg size (3 df),flight_statusterrestrial,-2.149,2.93e-4,3.123,1388,8,9
+stoddard,ellipticity,body_mass,spline mass and egg size (3 df),flight_statusdiving,-1.074,0.1226,2.218,1388,8,9
+stoddard,ellipticity,body_mass,flightless within volant mass range,flight_statusterrestrial,-1.523,0.02286,2.624,1381,2,8
+stoddard,ellipticity,body_mass,flightless within volant mass range,flight_statusdiving,-0.8125,0.2455,1.964,1381,2,8
+stoddard,asymmetry,baseline,"M1, all species",flight_statusterrestrial,-0.9831,0.08479,1.921,1388,8,9
+stoddard,asymmetry,baseline,"M1, all species",flight_statusdiving,0.377,0.58,0.7441,1388,8,9
+stoddard,asymmetry,leave_one_origin_out,without Penguins,flight_statusterrestrial,-0.9848,0.08365,1.921,1379,8,0
+stoddard,asymmetry,leave_one_origin_out,without Ratites,flight_statusterrestrial,-0.3494,0.7095,1.893,1381,1,9
+stoddard,asymmetry,leave_one_origin_out,without Ratites,flight_statusdiving,0.3745,0.5836,0.7498,1381,1,9
+stoddard,asymmetry,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusterrestrial,-1.341,0.0583,2.506,1387,7,9
+stoddard,asymmetry,leave_one_origin_out,without Rhynochetos_jubatus,flight_statusdiving,0.3742,0.583,0.7475,1387,7,9
+stoddard,asymmetry,classification,kagu as volant,flight_statusterrestrial,-1.336,0.05909,2.5,1388,7,9
+stoddard,asymmetry,classification,kagu as volant,flight_statusdiving,0.3759,0.581,0.7449,1388,7,9
+stoddard,asymmetry,body_mass,spline mass and egg size (3 df),flight_statusterrestrial,-0.8158,0.1644,1.781,1388,8,9
+stoddard,asymmetry,body_mass,spline mass and egg size (3 df),flight_statusdiving,0.383,0.5775,0.7483,1388,8,9
+stoddard,asymmetry,body_mass,flightless within volant mass range,flight_statusterrestrial,-0.9077,0.1707,1.998,1381,2,8
+stoddard,asymmetry,body_mass,flightless within volant mass range,flight_statusdiving,0.2004,0.7718,0.9365,1381,2,8
