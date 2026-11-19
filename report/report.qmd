@@ -11,7 +11,7 @@ format:
     papersize: a4
     margin:
       x: 2cm
-      y: 1.6cm
+      y: 1.5cm
     fontsize: 10pt
     section-numbering: "1."
     fig-format: png
@@ -99,6 +99,12 @@ k_max <- k_sure + sum(!inv$has_egg_data & inv$locomotion == "review")
 rn <- tab("rate_null")
 rnv <- function(ds, tr, g, col) rn[[col]][rn$dataset == ds & rn$trait == tr & rn$generator == g]
 rr <- function(ds, tr, reg, col) rt[[col]][rt$dataset == ds & rt$trait == tr & rt$regimes == reg]
+# Shared-species check (R/19)
+sr <- tab("shared_rates")
+srv <- function(tr, set = "shared") sr$ratio_flightless[sr$trait == tr & sr$species_set == set & sr$regimes == "R2"]
+n_shared <- sr$n_species[sr$species_set == "shared"][1]
+srn <- tab("shared_rates_null")
+srl <- tab("shared_rates_loo") |> filter(dropped_status == "terrestrial", dropped_n > 1)
 ```
 
 # Introduction
@@ -152,7 +158,7 @@ Terrestrial pairs were tested with a one-sample t-test, an exact Wilcoxon test a
 
 **Evolutionary rates (H3).** A model in which flightless lineages have their own Brownian-motion rate (*σ²*) was compared by likelihood-ratio test with a single-rate model [@omeara2006; @revell2012]. It was fitted with one shared rate for all flightless lineages (R2) and with separate rates for terrestrial and diving lineages (R3). Flightless regimes started at the midpoint of each origin's stem branch, because the exact timing of flight loss along that branch is unknown. I summarise rate ratios over the 100 posterior trees, using only fits that converged (92–98 per model). Multi-rate models fitted to few, short regimes can produce extreme ratios by chance, so I also simulated 100 traits per trait under a single rate on the MCC tree (Brownian motion, and Pagel's λ fitted to the observed trait), refitted R2 and R3 to each, and asked how often the null ratio was as extreme as the observed one.
 
-Analyses used R [@rcore2026] with ape [@paradis2019], phylolm, phytools and ggtree [@yu2017]. The full pipeline, including data download, runs with one command; the random seed is fixed at 20261117.
+Analyses used R [@rcore2026] with ape [@paradis2019], phylolm, phytools and ggtree [@yu2017]; the random seed is fixed at 20261117.
 
 # Results
 
@@ -192,11 +198,11 @@ knitr::include_graphics(here::here("output", "figures", "fig2_tree_heatmap.png")
 knitr::include_graphics(here::here("output", "figures", "fig3_sister_pairs.png"))
 ```
 
-**Rates (H3): one difference survives the null.** Flightless lineages appeared to evolve elongation and pointedness faster (median rate ratio over trees `r f2(rr("montgomerie", "elongation", "R2", "ratio_flightless_median"))` and `r f2(rr("montgomerie", "pointedness", "R2", "ratio_flightless_median"))`) and the asymmetry-type traits more slowly (polar asymmetry `r f2(rr("montgomerie", "polar_asym", "R2", "ratio_flightless_median"))`; Stoddard asymmetry `r f2(rr("stoddard", "asymmetry", "R2", "ratio_flightless_median"))` and ellipticity `r f2(rr("stoddard", "ellipticity", "R2", "ratio_flightless_median"))`; @fig-robust b). Under the λ null, however, the likelihood-ratio test was significant in `r pct(min(rn$null_lrt_false_pos[rn$generator == "lambda"]))`–`r pct(max(rn$null_lrt_false_pos[rn$generator == "lambda"]))` of datasets simulated without any rate difference, so its *p*-values are unreliable here. Only the slowdown in polar asymmetry fell outside both null distributions (no null ratio as low as `r f2(rnv("montgomerie", "polar_asym", "lambda", "obs_flightless"))`). The faster elongation and pointedness were matched or exceeded in `r pct(1 - rnv("montgomerie", "elongation", "lambda", "p_flightless_le_obs"))` and `r pct(1 - rnv("montgomerie", "pointedness", "lambda", "p_flightless_le_obs"))` of λ-null datasets, and the slower Stoddard traits in `r pct(rnv("stoddard", "ellipticity", "lambda", "p_flightless_le_obs"))`–`r pct(rnv("stoddard", "asymmetry", "lambda", "p_flightless_le_obs"))`. H3 is not supported, and the one robust rate difference runs opposite to the prediction.
+**Rates (H3): one difference survives the null.** Flightless lineages appeared to evolve elongation and pointedness faster (median rate ratio over trees `r f2(rr("montgomerie", "elongation", "R2", "ratio_flightless_median"))` and `r f2(rr("montgomerie", "pointedness", "R2", "ratio_flightless_median"))`) and the asymmetry-type traits more slowly (polar asymmetry `r f2(rr("montgomerie", "polar_asym", "R2", "ratio_flightless_median"))`; Stoddard asymmetry `r f2(rr("stoddard", "asymmetry", "R2", "ratio_flightless_median"))` and ellipticity `r f2(rr("stoddard", "ellipticity", "R2", "ratio_flightless_median"))`; @fig-robust b). Under the λ null, however, the likelihood-ratio test was significant in `r pct(min(rn$null_lrt_false_pos[rn$generator == "lambda"]))`–`r pct(max(rn$null_lrt_false_pos[rn$generator == "lambda"]))` of datasets simulated without any rate difference, so its *p*-values are unreliable here. Only the slowdown in polar asymmetry fell outside both null distributions (no null ratio as low as `r f2(rnv("montgomerie", "polar_asym", "lambda", "obs_flightless"))`). The faster elongation and pointedness were matched or exceeded in `r pct(1 - rnv("montgomerie", "elongation", "lambda", "p_flightless_le_obs"))` and `r pct(1 - rnv("montgomerie", "pointedness", "lambda", "p_flightless_le_obs"))` of λ-null datasets, and the slower Stoddard traits in `r pct(rnv("stoddard", "ellipticity", "lambda", "p_flightless_le_obs"))`–`r pct(rnv("stoddard", "asymmetry", "lambda", "p_flightless_le_obs"))`. The closely related elongation and Stoddard ellipticity thus pointed in opposite directions. A post-hoc check on the `r n_shared` shared species gave ratios near 1 for both (`r f2(srv("elongation"))`, `r f2(srv("ellipticity"))`; within the λ null), but dropping the ratites split them again (`r f2(srl$ratio_flightless[srl$trait == "elongation"])`, `r f2(srl$ratio_flightless[srl$trait == "ellipticity"])`): the conflict reflects species composition and noise, not the metrics. H3 is not supported, and the one robust rate difference runs opposite to the prediction.
 
-**H4.** Only 4–6 pairs were available. One of the 9 H4 tests gave *p* < 0.05: terrestrial elongation, *p* = `r formatC(h4$slope_p[h4$trait == "elongation" & h4$subset == "terrestrial"], digits = 3, format = "f")`. It rests on 4 points and is driven by the ratites, so I do not interpret it.
+**H4.** With only 4–6 pairs, one of 9 tests gave *p* < 0.05 (terrestrial elongation, *p* = `r formatC(h4$slope_p[h4$trait == "elongation" & h4$subset == "terrestrial"], digits = 3, format = "f")`); it rests on 4 points and is driven by the ratites, so I do not interpret it.
 
-**HWI.** HWI had a positive effect on every trait in both datasets (*p* ≤ `r formatC(max(hwi$p), digits = 2, format = "fg")`; significant on 100% of posterior trees), replicating Stoddard et al. [-@stoddard2017]. The effect was small: `r f2(min(hwi$std_estimate) * 10)`–`r f2(max(hwi$std_estimate) * 10)` SD per 10 HWI units.
+**HWI.** HWI had a positive effect on every trait in both datasets (*p* ≤ `r formatC(max(hwi$p), digits = 2, format = "fg")`; all posterior trees), replicating Stoddard et al. [-@stoddard2017]. The effect was small: `r f2(min(hwi$std_estimate) * 10)`–`r f2(max(hwi$std_estimate) * 10)` SD per 10 HWI units.
 
 ```{r}
 #| label: fig-robust
