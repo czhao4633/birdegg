@@ -1,0 +1,13 @@
+# Hand-curated name fixes applied after the automatic crosswalks in R/02_clean.R.
+# Stoddard et al. 2017 Data S1 gives the museum (MVZ) name and the name used in
+# their analysis; names ending in "1" are MVZ taxa they lumped into a species.
+dataset,original_name,birdtree_name,reason
+stoddard2017,Burhinus vermicularis,Burhinus vermiculatus,Spelling variant; BirdTree tip is B. vermiculatus
+stoddard2017,Amaurornis olivaceus,Amaurornis olivacea,Gender agreement of epithet; BirdTree tip is A. olivacea
+stoddard2017,Gallinago gallinago1,Gallinago gallinago,MVZ name Gallinago delicata; lumped into G. gallinago by Stoddard and not split in BirdTree
+stoddard2017,Porphyrio porphyrio1,Porphyrio porphyrio,MVZ name Porphyrio poliocephalus; lumped into P. porphyrio by Stoddard and in BirdTree
+stoddard2017,Carduelis flammea1,Carduelis flammea,MVZ name Carduelis flammea; '1' suffix only (second C. flammea row is MVZ C. cabaret)
+stoddard2017,Synallaxis azarae1,Synallaxis azarae,MVZ name Synallaxis azarae; '1' suffix only (other row is MVZ S. superciliosa)
+stoddard2017,Junco hyemalis1,Junco hyemalis,MVZ names J. hyemalis / J. caniceps / J. oreganus; all treated as J. hyemalis in BirdTree
+stoddard2017,Rhipidura albicollis1,Rhipidura albicollis,MVZ name Rhipidura albicollis; '1' suffix only (other row is MVZ R. albogularis)
+saitta2025,Strigops habroptilus,Strigops habroptila,Epithet spelling; BirdTree tip is S. habroptila

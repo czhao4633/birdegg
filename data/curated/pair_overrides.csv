@@ -1,0 +1,9 @@
+# Literature-based sister pairs that replace BirdTree MCC pairs for flightless
+# species whose BirdTree placement is taxonomy-imputed (no genetic data).
+# Partner and divergence time (max_age, converted to Myr) are taken from
+# Saitta et al. 2025 (Evolution, doi:10.1093/evolut/qpaf020),
+# Dryad doi:10.5061/dryad.qrfj6q5s7, file sisterpairs.csv, which cites the
+# underlying phylogenetic studies.
+dataset,flightless,partner,divergence_myr,source
+montgomerie,Phalacrocorax_harrisi,Phalacrocorax_auritus,2.37,Saitta et al. 2025 sisterpairs.csv pair 6
+montgomerie,Gallinula_mortierii,Gallinula_ventralis,5.5298,Saitta et al. 2025 sisterpairs.csv pair 12

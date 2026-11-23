@@ -1,0 +1,15 @@
+birdtree_name,family,sayol_volancy,review_reason,in_stoddard,in_montgomerie
+Anas_aucklandica,Anatidae,Flightless,Surface swimmer only (no underwater mode),FALSE,FALSE
+Anas_nesiotis,Anatidae,Flightless,No locomotion data,FALSE,FALSE
+Fulica_gigantea,Rallidae,Flightless,Surface swimmer only (no underwater mode),FALSE,FALSE
+Gallinula_nesiotis,Rallidae,Flightless,Surface swimmer only (no underwater mode),FALSE,FALSE
+Gallinula_silvestris,Rallidae,Flightless,No locomotion data,FALSE,FALSE
+Gallirallus_calayanensis,Rallidae,Flightless,No locomotion data,FALSE,FALSE
+Gallirallus_insignis,Rallidae,Flightless,No locomotion data,FALSE,FALSE
+Gallirallus_rovianae,Rallidae,Flightless,No locomotion data,FALSE,FALSE
+Mesitornis_unicolor,Mesitornithidae,Flightless,Sayol = Flightless but Saitta volant = '?',FALSE,FALSE
+Porphyrio_hochstetteri,Rallidae,Flightless,No locomotion data,FALSE,FALSE
+Porzana_atra,Rallidae,Flightless,No locomotion data,FALSE,FALSE
+Tachyeres_brachypterus,Anatidae,Flightless,No locomotion data,FALSE,FALSE
+Tachyeres_leucocephalus,Anatidae,Flightless,No locomotion data,FALSE,FALSE
+Tachyeres_pteneres,Anatidae,Flightless,Surface swimmer only (no underwater mode),FALSE,FALSE

@@ -1,0 +1,22 @@
+dataset,trait,locomotion,origin,n_sister,sister_is_tinamous,diff_std,source,n_pairs,mean_diff_std,n_negative,signflip_p_one_sided
+montgomerie,elongation,terrestrial,Dromaius_novaehollandiae + 4 spp.,7,TRUE,2.033,alternative tree,,,,
+montgomerie,pointedness,terrestrial,Dromaius_novaehollandiae + 4 spp.,7,TRUE,0.7399,alternative tree,,,,
+montgomerie,polar_asym,terrestrial,Dromaius_novaehollandiae + 4 spp.,7,TRUE,0.3953,alternative tree,,,,
+montgomerie,elongation,terrestrial,"Rhea_americana, Rhea_pennata",7,TRUE,0.7563,alternative tree,,,,
+montgomerie,pointedness,terrestrial,"Rhea_americana, Rhea_pennata",7,TRUE,-0.02836,alternative tree,,,,
+montgomerie,polar_asym,terrestrial,"Rhea_americana, Rhea_pennata",7,TRUE,-0.09763,alternative tree,,,,
+montgomerie,elongation,terrestrial,Struthio_camelus,7,TRUE,-1.319,alternative tree,,,,
+montgomerie,pointedness,terrestrial,Struthio_camelus,7,TRUE,-0.5245,alternative tree,,,,
+montgomerie,polar_asym,terrestrial,Struthio_camelus,7,TRUE,-0.05796,alternative tree,,,,
+montgomerie,elongation,terrestrial,Gallinula_mortierii,1,FALSE,-0.2685,R/08 pair,,,,
+montgomerie,pointedness,terrestrial,Gallinula_mortierii,1,FALSE,-0.9263,R/08 pair,,,,
+montgomerie,polar_asym,terrestrial,Gallinula_mortierii,1,FALSE,-0.8239,R/08 pair,,,,
+montgomerie,elongation,terrestrial,Rhynochetos_jubatus,1,FALSE,0.1206,R/08 pair,,,,
+montgomerie,pointedness,terrestrial,Rhynochetos_jubatus,1,FALSE,0.8221,R/08 pair,,,,
+montgomerie,polar_asym,terrestrial,Rhynochetos_jubatus,1,FALSE,0.2472,R/08 pair,,,,
+montgomerie,elongation,terrestrial,Strigops_habroptila,12,FALSE,0.3638,R/08 pair,,,,
+montgomerie,pointedness,terrestrial,Strigops_habroptila,12,FALSE,0.7523,R/08 pair,,,,
+montgomerie,polar_asym,terrestrial,Strigops_habroptila,12,FALSE,-0.03731,R/08 pair,,,,
+montgomerie,elongation,,TEST (terrestrial pairs),,,,,6,0.2809,2,0.7188
+montgomerie,pointedness,,TEST (terrestrial pairs),,,,,6,0.1392,3,0.7031
+montgomerie,polar_asym,,TEST (terrestrial pairs),,,,,6,-0.06238,4,0.3906

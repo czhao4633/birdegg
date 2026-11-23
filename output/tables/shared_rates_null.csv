@@ -1,0 +1,4 @@
+trait,n_converged,lambda,obs_ratio,null_median,null_lo95,null_hi95,p_le_obs,p_ge_obs,null_lrt_false_pos
+ellipticity,88,0.936,1.28,0.781,0.276,1.53,0.909,0.0909,0.114
+elongation,85,0.912,1.15,0.719,0.272,1.65,0.882,0.118,0.165
+pointedness,90,0.884,0.92,0.659,0.229,1.43,0.778,0.222,0.189

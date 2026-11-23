@@ -1,0 +1,10 @@
+dropped_origin,dropped_n,dropped_status,dataset,trait,regimes,ratio_flightless,lrt_p,converged
+Aptenodytes_patagonicus + 7 more,8,diving,montgomerie,elongation,R2,1.58,0.344,TRUE
+Aptenodytes_patagonicus + 7 more,8,diving,montgomerie,pointedness,R2,0.861,0.78,TRUE
+Aptenodytes_patagonicus + 7 more,8,diving,stoddard,ellipticity,R2,1,1,FALSE
+Dromaius_novaehollandiae + 6 more,7,terrestrial,montgomerie,elongation,R2,0.662,0.465,TRUE
+Dromaius_novaehollandiae + 6 more,7,terrestrial,montgomerie,pointedness,R2,0.921,0.868,TRUE
+Dromaius_novaehollandiae + 6 more,7,terrestrial,stoddard,ellipticity,R2,1.44,0.44,TRUE
+Rhynochetos_jubatus,1,terrestrial,montgomerie,elongation,R2,1.17,0.674,TRUE
+Rhynochetos_jubatus,1,terrestrial,montgomerie,pointedness,R2,0.95,0.888,FALSE
+Rhynochetos_jubatus,1,terrestrial,stoddard,ellipticity,R2,1.31,0.455,TRUE

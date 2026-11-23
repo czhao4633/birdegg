@@ -1,0 +1,11 @@
+check,value
+"Heaviest volant species, mass (g)",11240
+"Lightest non-kiwi ratite, mass (g)",23000
+Ratites heavier than heaviest volant species,6
+Ratites in dataset,8
+Mean elongation ratites,1.486
+Mean pointedness ratites,0.5264
+Mean polar_asym ratites,1.245
+Mean elongation sister group (tinamous),1.353
+Mean pointedness sister group (tinamous),0.5166
+Mean polar_asym sister group (tinamous),1.148

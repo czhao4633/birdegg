@@ -1,0 +1,6 @@
+dataset,trait,aicc_BM1,aicc_OU1,aicc_OUM2,aicc_OUM3,w_BM1,w_OU1,w_OUM2,w_OUM3,lrt_p_OUM2_vs_OU1,lrt_p_OUM3_vs_OU1,theta_flightless_minus_volant,theta_terrestrial_minus_volant,theta_diving_minus_volant,half_life_myr_OUM2,half_life_myr_OUM3,tree_height_myr
+montgomerie,elongation,2158,2066,2069,2070,7.91e-21,0.71,0.1608,0.1292,1,0.7294,-0.04,0.5688,-1.265,37.83,37.69,94.3
+montgomerie,pointedness,2149,2033,2035,2037,3.259e-26,0.7309,0.1793,0.08981,1,1,-0.1884,-0.5465,0.5242,35.51,35.31,94.3
+montgomerie,polar_asym,2946,2571,2573,2573,2.1779999999999996e-82,0.522,0.2231,0.2549,0.5734,0.2718,-0.2709,-0.7531,0.5292,16.92,16.79,94.3
+stoddard,ellipticity,4859,3944,3945,3941,3.910999999999999e-200,0.1915,0.09594,0.7125,0.4277,0.0359,0.1935,0.824,-0.367,0.001921,0.003708,94.3
+stoddard,asymmetry,4278,3754,3756,3755,7.412999999999999e-115,0.4655,0.2232,0.3113,0.4618,0.1998,-0.3022,-0.8523,0.4651,13.26,13.17,94.3

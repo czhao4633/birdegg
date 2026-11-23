@@ -1,0 +1,13 @@
+dataset,trait,regimes,ratio_flightless,ratio_terrestrial,ratio_diving,lrt_p,converged,species_set,n_species
+montgomerie,elongation,R2,1.98,,,0.0059,TRUE,full,946
+montgomerie,elongation,R3,,1.95,1.99,0.0226,TRUE,full,946
+montgomerie,elongation,R2,1.15,,,0.713,TRUE,shared,491
+montgomerie,elongation,R3,,1.58,0.679,0.51,TRUE,shared,491
+montgomerie,pointedness,R2,2.62,,,3.44e-5,TRUE,full,946
+montgomerie,pointedness,R3,,4.6,1.24,1e-5,TRUE,full,946
+montgomerie,pointedness,R2,0.92,,,0.823,TRUE,shared,491
+montgomerie,pointedness,R3,,0.861,0.976,0.961,TRUE,shared,491
+stoddard,ellipticity,R2,0.263,,,0.00244,TRUE,full,1388
+stoddard,ellipticity,R3,,0.232,0.289,0.0097,TRUE,full,1388
+stoddard,ellipticity,R2,1.28,,,0.493,TRUE,shared,491
+stoddard,ellipticity,R3,,1.03,1.52,0.688,TRUE,shared,491

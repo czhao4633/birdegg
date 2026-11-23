@@ -1,0 +1,6 @@
+# Quarto project at the repository root, so the Typst PDF engine may read
+# figures in output/figures. Only the report is rendered.
+project:
+  type: default
+  render:
+    - report/report.qmd

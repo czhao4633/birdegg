@@ -1,0 +1,4 @@
+# Manual classifications of species flagged for review by R/03_flightless.R
+birdtree_name,locomotion,reason
+Rhynochetos_jubatus,terrestrial,"Sayol 'Weak flyer'; treated as functionally flightless and terrestrial; flight ability noted as debatable in Limitations"
+Gallinula_mortierii,terrestrial,"Sayol 'Flightless'; surface swimmer only per Saitta, does not dive, so no streamlining demand; grouped with terrestrial"

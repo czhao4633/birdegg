@@ -1,0 +1,9 @@
+check,estimate,std_estimate,p,n,n_terrestrial,value
+M1 as fitted (MCC tree),-0.1543,-1.721,0.002988,1388,8,
+M1 without mass and egg-size covariates,-0.001474,-0.01644,0.9816,1388,8,
+M1 without ratites (terrestrial = kagu only),-0.2067,-2.305,0.01479,1381,1,
+"Heaviest volant species, mass (g)",,,,,,11070
+"Lightest ratite, mass (g)",,,,,,23000
+Ratites heavier than heaviest volant species,,,,,,6
+"Mean ellipticity, ratites",,,,,,0.477
+"Mean ellipticity, sister group (tinamous)",,,,,,0.3778

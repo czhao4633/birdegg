@@ -1,0 +1,10 @@
+trait,model,std_estimate,se,df,delta_min_sd,post_delta_min_median,post_delta_min_max,hwi_std_slope,mean_hwi_drop,benchmark_sd,p_vs_benchmark,p_vs_0.5sd,benchmark_excluded
+elongation,M1_status,-0.1073,0.03121,941,0.6078,0.5541,0.719,0.007726,22.05,0.1703,0.4179,0.0983,FALSE
+elongation,M0_status_only,0.2957,0.03677,943,0.2939,0.2425,0.4563,0.007726,22.05,0.1703,0.09671,0.01325,FALSE
+elongation,M6_status_mass,-0.04793,0.03531,942,0.6142,0.5092,0.7062,0.007726,22.05,0.1703,0.3609,0.09444,FALSE
+pointedness,M1_status,-0.1763,0.008337,941,0.7233,0.6948,0.9454,0.01715,22.05,0.3782,0.2718,0.165,FALSE
+pointedness,M0_status_only,0.0076,0.008611,943,0.5573,0.5278,0.8099,0.01715,22.05,0.3782,0.1306,0.06966,FALSE
+pointedness,M6_status_mass,-0.1507,0.008596,942,0.7146,0.663,0.8894,0.01715,22.05,0.3782,0.2533,0.154,FALSE
+polar_asym,M1_status,-0.21560000000000001,0.1473,941,0.753,0.7098,0.8274,0.01614,22.05,0.3558,0.3338,0.1919,FALSE
+polar_asym,M0_status_only,-0.1395,0.1472,943,0.6765,0.6389,0.7617,0.01614,22.05,0.3558,0.2536,0.1346,FALSE
+polar_asym,M6_status_mass,-0.2068,0.1482,942,0.7471,0.6977,0.8214,0.01614,22.05,0.3558,0.325,0.186,FALSE

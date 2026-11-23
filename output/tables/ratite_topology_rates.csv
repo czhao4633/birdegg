@@ -1,0 +1,6 @@
+dataset,trait,ratio_flightless,lrt_p,converged
+montgomerie,elongation,1.933,0.0104,TRUE
+montgomerie,pointedness,2.664,2.733e-5,TRUE
+montgomerie,polar_asym,0.3209,9.794e-4,TRUE
+stoddard,ellipticity,0.2178,0.001443,TRUE
+stoddard,asymmetry,0.2677,0.003833,TRUE

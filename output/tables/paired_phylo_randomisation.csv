@@ -1,0 +1,10 @@
+trait,locomotion,n_pairs,obs_mean_diff_std,pool_sizes,p_one_sided_less,p_two_sided
+elongation,terrestrial,4,0.378,113/245/396/224,0.851,0.292
+elongation,diving,2,-0.386,185/97,0.207,0.404
+elongation,all,6,0.123,185/113/245/97/396/224,0.666,0.678
+pointedness,terrestrial,4,0.259,113/245/396/224,0.784,0.435
+pointedness,diving,2,0.0873,185/97,0.596,0.825
+pointedness,all,6,0.202,185/113/245/97/396/224,0.776,0.456
+polar_asym,terrestrial,4,-0.0996,113/245/396/224,0.358,0.738
+polar_asym,diving,2,0.224,185/97,0.723,0.553
+polar_asym,all,6,0.0082,185/113/245/97/396/224,0.513,0.973
